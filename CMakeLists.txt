@@ -57,7 +57,7 @@ elseif(BUILD_ROS2)
     find_package(std_msgs                 REQUIRED)
 
     # Register all message definitions for code generation.
-    file(GLOB msg_files "msg/*.msg")
+    file(GLOB msg_files RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "msg/*.msg")
 
     rosidl_generate_interfaces(${PROJECT_NAME}
         ${msg_files}
