@@ -30,10 +30,7 @@ if(BUILD_DDS)
     find_package(CycloneDDS-CXX REQUIRED)
 
     # Collect all IDL definitions from the idl/ directory.
-    file(GLOB IDL_FILES 
-        "idl/JoyData.idl"
-        "idl/SensorData.idl"
-        "idl/JointData.idl")
+    file(GLOB IDL_FILES "idl/*.idl")
     if(NOT IDL_FILES)
         message(FATAL_ERROR "No .idl files found in the idl/ directory.")
     endif()
@@ -60,11 +57,7 @@ elseif(BUILD_ROS2)
     find_package(std_msgs                 REQUIRED)
 
     # Register all message definitions for code generation.
-    set(msg_files
-        "msg/JoyData.msg"
-        "msg/SensorData.msg"
-        "msg/JointData.msg"
-    )
+    file(GLOB msg_files "msg/*.msg")
 
     rosidl_generate_interfaces(${PROJECT_NAME}
         ${msg_files}

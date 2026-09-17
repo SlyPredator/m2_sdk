@@ -1,0 +1,11 @@
+module xterra {
+    module msg {
+        module dds_ {
+            struct Point3D_ {
+                float x;
+                float y;
+                float z;
+            };
+        };
+    };
+};
